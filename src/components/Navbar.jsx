@@ -1,18 +1,24 @@
+import baseUrl from "@/services/baseUrl";
+import Link from "next/link";
 import React from "react";
 
-const Navbar = () => {
+
+const Navbar = async () => {
+  const res = await fetch(`${baseUrl}/categories`, {
+    next: { revalidate: 10 },
+  });
+  const data = await res.json();
+  console.log(data);
+ 
+
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <ul className="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box">
-        <li>
-          <a>Item 1</a>
-        </li>
-        <li>
-          <a>Item 2</a>
-        </li>
-        <li>
-          <a>Item 3</a>
-        </li>
+        {data.map((item) => (
+          <li key={item.id}>
+            <Link href={`/category/${item.slug}`}><span>{item.icon}</span>{item.nameBn}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

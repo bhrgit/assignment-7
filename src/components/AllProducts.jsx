@@ -9,7 +9,7 @@ const AllProducts = () => {
         const data = await response.json();
         return data;
     };
-    console.log(data);
+    // console.log(data);
     return (
         <div>
             {data.map((product) => (
