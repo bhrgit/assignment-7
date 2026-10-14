@@ -6,7 +6,7 @@ const ProductCard = ({product}) => {
         <div>
             <h2>{product.nameBn}</h2>
             <p>{product.unit}</p>
-            <p>{product.image}</p>
+            {/* <p>{product.image}</p> */}
 
             {/* <p>Price: {product.price}</p> */}
         </div>

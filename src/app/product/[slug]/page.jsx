@@ -1,5 +1,5 @@
 import React from 'react';
-import baseUrl from '../../../services/baseUrl';
+import baseUrl from "@/services/baseUrl";
 
 const getSingleProduct = async (slug) => {
     const res = await fetch(`${baseUrl}/products/${slug}`,

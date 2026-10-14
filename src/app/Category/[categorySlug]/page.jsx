@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductCard from '../../../components/ProductCard';
-import baseUrl from '../../../services/baseUrl';
+import baseUrl from "@/services/baseUrl";
 
 
 

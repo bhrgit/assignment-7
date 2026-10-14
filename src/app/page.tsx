@@ -1,23 +1,23 @@
-import Image from "next/image";
-import ProductCard from "../components/ProductCard";
 import Banner from "@/components/Banner";
-import baseUrl from '../services/baseUrl';
+import baseUrl from "@/services/baseUrl";
+import AllProducts from "@/components/AllProducts";
 
 
-const getProducts = async () => {
+const getAllProducts = async () => {
     const res = await fetch(`${baseUrl}/products`,
         { next: { revalidate: 10 } }
     );
     if(!res.ok){
         throw new Error('Failed to fetch data');
     }
-    const products = await res.json();
-    return products;
+    const data = await res.json();
+    return data;
     
 }
 
-export default function Home () {
-  
+export default async function Home () {
+    const allProducts = await getAllProducts();
+
   return (
     <section>
       <Banner></Banner>
@@ -26,7 +26,8 @@ export default function Home () {
       <h2>আজ দাম কমেছে</h2>
       <div></div>
       <h2>সব পণ্য</h2>
-      <p>মোট ৩৩টি পণ্য দেখানো হচ্ছে</p>
+      <p>মোট {allProducts.length} টি পণ্য দেখানো হচ্ছে</p>
+      <AllProducts products={allProducts} />
       
       
       <div>
