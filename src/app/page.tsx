@@ -1,6 +1,8 @@
 import Banner from "@/components/Banner";
 import baseUrl from "@/services/baseUrl";
 import AllProducts from "@/components/AllProducts";
+import PriceRise from "@/components/PriceRise";
+import PriceFall from "@/components/PriceFall";
 
 
 const getAllProducts = async () => {
@@ -21,17 +23,19 @@ export default async function Home () {
   return (
     <section>
       <Banner></Banner>
-      <h2>আজ দাম বেড়েছে</h2>
-      <div></div>
-      <h2>আজ দাম কমেছে</h2>
-      <div></div>
-      <h2>সব পণ্য</h2>
-      <p>মোট {allProducts.length} টি পণ্য দেখানো হচ্ছে</p>
-      <AllProducts products={allProducts} />
-      
-      
+      <h2 className="text-xl font-bold my-4">আজ দাম বেড়েছে</h2>
       <div>
-        
+        <PriceRise products={allProducts} />
+      </div>
+      <h2 className="text-xl font-bold my-4">আজ দাম কমেছে</h2>
+      <div>
+      <PriceFall products={allProducts} />
+      </div>
+      <h2 className="text-xl font-bold my-4">সব পণ্য</h2>
+      <p>মোট {allProducts.length} টি পণ্য দেখানো হচ্ছে</p>    
+          
+      <div>
+        <AllProducts products={allProducts} />
       </div>
       
 

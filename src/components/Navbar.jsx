@@ -13,7 +13,7 @@ const Navbar = async () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <ul className="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box">
+      <ul className="menu menu-horizontal bg-base-200 rounded-box">
         {data.map((item) => (
           <li key={item.id}>
             <Link href={`/category/${item.slug}`}><span>{item.icon}</span>{item.nameBn}</Link>

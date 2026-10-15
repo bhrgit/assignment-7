@@ -8,6 +8,17 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   reactCompiler: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "https://openapi.programming-hero.com/api/bazardor/",
+        port: "",
+        pathname: "/**",}
+    ],
+  },
+ 
+
   turbopack: {
     rules: {
       "*.css": {
