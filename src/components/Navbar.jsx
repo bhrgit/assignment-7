@@ -8,7 +8,7 @@ const Navbar = async () => {
     next: { revalidate: 10 },
   });
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
  
 
   return (
