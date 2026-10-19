@@ -1,5 +1,7 @@
 import React from 'react';
 import baseUrl from "@/services/baseUrl";
+import ProductDetailsCard from '@/components/ProductDetailsCard';
+import Link from 'next/link';
 
 const getSingleProduct = async (slug) => {
     const res = await fetch(`${baseUrl}/products/${slug}`,
@@ -9,6 +11,7 @@ const getSingleProduct = async (slug) => {
         throw new Error('Failed to fetch data');
     }
     const data = await res.json();
+    console.log(data);
     return data;
     
 }
@@ -19,12 +22,9 @@ const ProductDetailsPage = async ({ params }) => {
     const product = await getSingleProduct(slug);
 
     return (
-        <div>
-            <h1>{product.nameBn}</h1>
-            <p>{product.unit}</p>
-            {/* <p>{product.image}</p> */}
-            {/* <p>Price: {product.price}</p> */}
-        </div>
+       
+        <ProductDetailsCard  key={product.id}  product={product} />
+       
     );
 };
 
