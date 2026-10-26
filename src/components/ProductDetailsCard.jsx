@@ -1,8 +1,10 @@
+import Link from "next/link";
 
 
 export default function ProductDetailsCard({product}) {
-  return (
-    <div className="bg-[#f7f9fa] min-h-screen p-4 md:p-8 font-sans antialiased text-[#2c3e50]">
+  return (   
+       
+      <div className="bg-[#f7f9fa] min-h-screen p-4 md:p-8 font-sans antialiased text-[#2c3e50]">
       <div className="max-w-6xl mx-auto space-y-6">
         
         
@@ -10,7 +12,7 @@ export default function ProductDetailsCard({product}) {
           <div className="flex items-start gap-4">
             
             <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center border border-red-200 shrink-0">
-              <span className="text-xl">{product.icon}</span>
+              <span className="text-xl">{product.image}</span>
             </div>
             <div>
               <h1 className="text-2xl font-bold text-gray-800">{product.nameBn}</h1>
@@ -37,15 +39,17 @@ export default function ProductDetailsCard({product}) {
         <div>
           <h2 className="text-lg font-bold text-gray-800 mb-3">দামের সারসংক্ষেপ</h2>
           {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {summaryStats.map((stat, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
-                <span className="text-sm text-gray-500 block">{stat.label}</span>
-                <span className={`text-2xl font-bold block my-1.5 ${idx === 1 ? 'text-red-500' : 'text-emerald-600'}`}>
-                  {stat.price}
+          const maxProduct = {product.markets.reduce((max, item) => item.price > max.price ? item : max)};
+          const minProduct = {product.markets.reduce((min, item) => item.price < min.price ? item : min)};
+            
+              <div  className="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
+                <span className="text-sm text-gray-500 block">xx</span>
+                <span className="text-2xl font-bold block my-1.5">
+                  xxxx
                 </span>
-                <span className="text-xs text-gray-400 block">{stat.subtext}</span>
+                <span className="text-xs text-gray-400 block">xxx</span>
               </div>
-            ))}
+            
           </div> */}
         </div>
 
@@ -82,6 +86,7 @@ export default function ProductDetailsCard({product}) {
         </div>
 
       </div>
-    </div>
+      </div>
+      
   );
 }

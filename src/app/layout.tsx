@@ -6,6 +6,7 @@ import Header  from "../components/Header";
 import Footer from "../components/Footer";
 import toast, { Toaster } from 'react-hot-toast';
 import Navbar from "@/components/Navbar";
+import Marquee from "@/components/Marquee ";
 
 
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <Header></Header>
         <Navbar></Navbar>
+        <Marquee></Marquee>
         
 
       <main className="max-w-7xl mx-auto py-10">{children}</main>
