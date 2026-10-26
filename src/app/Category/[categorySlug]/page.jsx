@@ -2,7 +2,8 @@ import React from 'react';
 import ProductCard from '@/components/ProductCard';
 import baseUrl from "@/services/baseUrl";
 
- 
+export const instant = false;
+
 const CategoryProducts = async ({ params }) => {
     const { categorySlug } = await params;
 

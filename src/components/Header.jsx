@@ -4,12 +4,6 @@ import Link from "next/link";
 import React from "react";
 
 const Header = () => {
-
-    const date = new Date().toLocaleDateString("bn-BD", {
-    dateStyle: "full",});
-
-    
-
   return (
     <div className="navbar bg-base-100/80 backdrop-blur-md sticky top-0 z-50 border-b border-base-200 px-4 lg:px-8 shadow-xs flex justify-between items-center transition-all">
       
@@ -29,7 +23,6 @@ const Header = () => {
             বাজার দর
           </Link>
           <span className="text-[11px] font-medium text-base-content/60 capitalize">
-            {/* {date}  */}
           </span>
         </div>
       </div>
@@ -74,4 +67,3 @@ const Header = () => {
 };
 
 export default Header;
-

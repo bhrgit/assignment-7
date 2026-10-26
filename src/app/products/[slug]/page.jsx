@@ -3,6 +3,8 @@ import baseUrl from "@/services/baseUrl";
 import ProductDetailsCard from '@/components/ProductDetailsCard';
 import Link from 'next/link';
 
+export const instant = false;
+
 const getSingleProduct = async (slug) => {
     const res = await fetch(`${baseUrl}/products/${slug}`,
         { next: { revalidate: 10 } }
