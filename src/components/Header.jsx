@@ -1,12 +1,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
+
 import React from "react";
 
 const Header = () => {
 
     const date = new Date().toLocaleDateString("bn-BD", {
     dateStyle: "full",});
+
+    
 
     
 
@@ -29,7 +32,8 @@ const Header = () => {
             বাজার দর
           </Link>
           <span className="text-[11px] font-medium text-base-content/60 capitalize">
-            {/* {date}  */}
+          {date}
+           
           </span>
         </div>
       </div>
@@ -61,10 +65,14 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a>Settings</a>
+            <Link href="/signin">
+            সাইন ইন
+          </Link>
           </li>
           <li>
-            <a>Logout</a>
+             <Link href="/signup">
+            সাইন আপ
+          </Link>
           </li>
         </ul>
       </div>

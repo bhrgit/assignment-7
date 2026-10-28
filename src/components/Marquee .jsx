@@ -21,7 +21,7 @@ const Marquee  =  async () => {
     return (
         <div>
             <MarqueeText
-                className="py-1 my-1"
+                className="py-1 my-1 bg-base-200"
                 duration={20}
                 direction="left">
                     {products.map((product, index) => (
