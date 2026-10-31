@@ -2,31 +2,34 @@ import React from 'react';
 import ProductCard from '@/components/ProductCard';
 import baseUrl from "@/services/baseUrl";
 
- 
-const CategoryProducts = async ({ params }) => {
-    const { categorySlug } = await params;
+const getCategoryProducts = async (categorySlug) => {
+    "use cache";
 
     const res = await fetch(`${baseUrl}/products?category=${categorySlug}`);
     if (!res.ok) {
         throw new Error('Failed to fetch products');
     }
-    const fatchedProducts = await res.json();
+    return res.json();
+};
 
-    // console.log(fatchedProducts);
+const getAllCategories = async () => {
+    "use cache";
 
-    const getAllCategories = async () => {
     const res = await fetch(`${baseUrl}/categories`);
     if (!res.ok) {
         throw new Error('Failed to fetch categories');
     }
-    const data = await res.json();
-    // console.log(data);
-    return data;
-    }
+    return res.json();
+};
 
-    const allCategories = await getAllCategories();
+const CategoryProductsContent = async ({ params }) => {
+    const { categorySlug } = await params;
+
+    const [fatchedProducts, allCategories] = await Promise.all([
+        getCategoryProducts(categorySlug),
+        getAllCategories(),
+    ]);
     const currentCategory = allCategories.find((cat) => cat.slug === categorySlug);
-    // console.log(currentCategory);
 
     return (
         <div>
@@ -45,5 +48,11 @@ const CategoryProducts = async ({ params }) => {
         </div>
     );
 };
+
+const CategoryProducts = ({ params }) => (
+    <React.Suspense fallback={<p>পণ্য লোড হচ্ছে...</p>}>
+        <CategoryProductsContent params={params} />
+    </React.Suspense>
+);
 
 export default CategoryProducts;

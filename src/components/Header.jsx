@@ -1,15 +1,20 @@
-
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
 import React from "react";
 
+ 
+
 const Header = () => {
+  
+    // const date = new Date().toLocaleDateString("bn-BD", {
+    //   dateStyle: "full",
+    // });
 
-    const date = new Date().toLocaleDateString("bn-BD", {
-    dateStyle: "full",});
+   
+  
 
-    
 
     
 
@@ -32,7 +37,7 @@ const Header = () => {
             বাজার দর
           </Link>
           <span className="text-[11px] font-medium text-base-content/60 capitalize">
-          {date}
+          {/* {date || "লোডিং..."} */}
            
           </span>
         </div>
@@ -59,18 +64,18 @@ const Header = () => {
           className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
         >
           <li>
-            <a className="justify-between">
+            <p className="justify-between">
               Profile
               <span className="badge">New</span>
-            </a>
+            </p>
           </li>
           <li>
-            <Link href="/signin">
+            <Link href="/signin" prefetch={false}>
             সাইন ইন
           </Link>
           </li>
           <li>
-             <Link href="/signup">
+             <Link href="/signup" prefetch={false}>
             সাইন আপ
           </Link>
           </li>

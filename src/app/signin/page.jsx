@@ -25,7 +25,7 @@ const SignInPage = () => {
         /**
          * A URL to redirect to after the user verifies their email (optional)
          */
-        callbackURL: "/dashboard",
+        callbackURL: "/",
         
 },)
 console.log(signInData, error)

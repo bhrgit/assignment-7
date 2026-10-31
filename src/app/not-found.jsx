@@ -1,14 +1,14 @@
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
 
-const NotFoundPage = () => {
-    return (
-        <div>
-            <h1>404 - Page Not Found</h1>
-            <Link href="/">Go back to Home</Link>
-            
-        </div>
-    );
-};
+export default function NotFoundPage() {
+  return (
+    <div>
+      <h2>Page Not Found</h2>
+      <p>Could not find requested resource</p>
+       <Link href="/">Go back to Home</Link>
+    </div>
+  );
+}
 
-export default NotFoundPage;

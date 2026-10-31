@@ -3,10 +3,12 @@ import baseUrl from "@/services/baseUrl";
 import ProductDetailsCard from '@/components/ProductDetailsCard';
 import Link from 'next/link';
 
+
+
 const getSingleProduct = async (slug) => {
     const res = await fetch(`${baseUrl}/products/${slug}`,
-        { next: { revalidate: 10 } }
-    );
+        {  cache: 'no-store' }) 
+    ;
     if(!res.ok){
         throw new Error('Failed to fetch data');
     }
@@ -14,7 +16,7 @@ const getSingleProduct = async (slug) => {
     console.log(data);
     return data;
     
-}
+};
 
 
 const ProductDetailsPage = async ({ params }) => {
